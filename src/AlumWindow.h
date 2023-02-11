@@ -18,10 +18,14 @@ public:
     ~AlumWindow();
     AlumWindow(string name):m_name(name){};
 public:
+    // void  setsize(int w ,int h){
+    //    of.setwidth(w);
+    //    of.sethigh (h);
+    //    };
      string  getname(){return m_name;};
 private:
     string m_name;
-    OutFrame Of;
+    OutFrame of;
     vector<VirtualHole*> vh;
     vector<Vent*> vc;
 
