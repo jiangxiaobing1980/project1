@@ -16,17 +16,31 @@ public:
 	EPDM();
 	virtual ~EPDM();
 public:
+private:
 	double exitdistance;
-	double m_weight;
+	double m_weightmetre;
 	double m_weightprice;
 
+	bool bprices;
+	double m_price;
+
 public:
-	EPDM( Group* pgroup , double distance, double weight, double weightprice) :exitdistance(distance) , m_weight(weight), m_weightprice(weightprice) {};
+	EPDM( Group* pgroup , double distance, double weight, double weightprice) :exitdistance(distance) ,
+	m_weightmetre(weight), m_weightprice(weightprice),bprices(0) {};
 
 	double getLenght(){return 1.0 ; };	//pgroup(宽+高)*2-exitdistance*8.0
-	double getWeight(){return getLenght() * m_weight;} ;
-	double getprice(){return getLenght() * m_weightprice; };
-		   
+
+	double getmetreprice() {return m_weightmetre * m_weightprice; };
+
+	void setprice(double price) {m_price =  price; bprices =1 ; };
+	double getprice() {
+		if(bprices)
+			return getLenght() *  getmetreprice();
+		else m_price; 
+	};
+
+private:
+	double getWeight(){return getLenght() * m_weightmetre;} ;
 
 
 };
