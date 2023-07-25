@@ -18,14 +18,14 @@ public:
 public:
 	double exitdistance;
 	double m_weight;
-	double m_price;
+	double m_weightprice;
 
 public:
-	EPDM( Group* pgroup , double distance, double weight, double price) :exitdistance(distance) ,m_weight(weight), m_price(price) {};
+	EPDM( Group* pgroup , double distance, double weight, double weightprice) :exitdistance(distance) , m_weight(weight), m_weightprice(weightprice) {};
 
-	double getLenght(){return 0 ; };	//pgroup(宽+高)*2-exitdistance*8.0
-	double getWeight(){return getLenght() * m_weight ;};
-	double getAmount(){return getLenght() * m_price};
+	double getLenght(){return 1.0 ; };	//pgroup(宽+高)*2-exitdistance*8.0
+	double getWeight(){return getLenght() * m_weight;} ;
+	double getprice(){return getLenght() * m_weightprice; };
 		   
 
 
